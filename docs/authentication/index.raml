@@ -1,0 +1,106 @@
+/sign-up:
+  displayName: Sign Up Users
+  post:
+    description: Create new user
+    body:
+      application/json:
+        example: !include sign-up/post-request-example.json
+        type: !include sign-up/post-request-schema.json
+    responses:
+      201:
+        body:
+          application/json:
+            example: !include sign-up/post-response-201-example.json
+            type: !include sign-up/post-response-201-schema.json
+  /resend-email:
+    displayName: Resend the validate email token
+    description: Validate if the current session of the user it's ok and send validation email
+    post:
+      is: [secured]
+      responses:
+        201:
+          body:
+            application/json:
+              type: !include authentication/sign-up/resend-email/post-response-201-schema.json
+              example: !include authentication/sign-up/resend-email/post-response-201-example.json
+
+/sign-in:
+  displayName: Sign In User
+  post:
+    description: Init user session in the system
+    body:
+      application/json:
+        type: !include sign-in/post-request-schema.json
+        example: !include sign-in/post-request-example.json
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include sign-in/post-response-201-schema.json
+            example: !include sign-in/post-response-201-example.json
+
+/validate:
+  displayName: Validate JWTs
+  /session:
+    displayName: Validate Session
+    description: Validate if the current session of the user it's ok and get user info
+    get:
+      is: [secured]
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include authentication/validate/session/get-response-200-schema.json
+              example: !include authentication/validate/session/get-response-200-example.json
+  /token/{type}:
+    displayName: Validate JWT
+    description: Validate if the JWT it's ok and get user info
+    uriParameters:
+      type:
+        description: The type of the token
+        enum: [ verify-email, set-password, password-recovery ]
+    get:
+      queryParameters:
+        jwt:
+          displayName: JWT
+          type: string
+          description: The JWT for validate
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWRjNWE3ZmQ0MzE3OGI5ZmQ1NWQwMmJmIiwiaWF0IjoxNTczMjM0Njg1LCJleHAiOjE1NzMzMjEwODV9.5NkBFQ6B2Y_EMpv-g0JLV5UZXeMCWb0jrDwJTWVvsFY
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include authentication/validate/token/get-response-200-schema.json
+              example: !include authentication/validate/token/get-response-200-example.json
+
+/password:
+  displayName: Password Recovery flow
+  /recovery:
+    displayName: Init recovery password flow
+    post:
+      description: Send email with recovery password token
+      body:
+        application/json:
+          type: !include authentication/password/recovery/post-request-schema.json
+          example: !include authentication/password/recovery/post-request-example.json
+      responses:
+        201:
+          body:
+            application/json:
+              type: !include authentication/password/recovery/post-response-201-schema.json
+              example: !include authentication/password/recovery/post-response-201-example.json
+  /reset:
+    displayName: Reset user password
+    patch:
+      description: Create new user password
+      body:
+        application/json:
+          type: !include authentication/password/reset/patch-request-schema.json
+          example: !include authentication/password/reset/patch-request-example.json
+      responses:
+        200:
+          body:
+            application/json:
+              type: !include authentication/password/reset/patch-response-200-schema.json
+              example: !include authentication/password/reset/patch-response-200-example.json

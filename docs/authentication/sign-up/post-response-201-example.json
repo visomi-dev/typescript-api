@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "message": "Session created, expires in one day",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWRjMzYxMjBkZDc5MTMyNzVkMjMzNDBkIiwiY29tcGFueSI6IjVkYzM2MTIwZGQ3OTEzMjc1ZDIzMzQwYyIsImlhdCI6MTU3MzE1MTMxMiwiZXhwIjoxNTczMjM3NzEyfQ.f3xFI0rVZFfa559Zl3_hb6VNtt8p48Ezl5NCct96IEA",
+    "user": {
+      "id": "1",
+      "emailVerified": false,
+      "companies": [
+        "1"
+      ],
+      "name": "Fulanito De Tal",
+      "email": "fulanito@detal.com",
+      "phoneNumber": "+(52)5562722728",
+      "referCode": "J8AAQ",
+      "referencedCode": "12345",
+      "defaultCompany": "1",
+      "createdAt": "2019-11-07T00:11:13.004Z",
+      "updatedAt": "2019-11-07T00:42:27.808Z"
+    },
+    "company": {
+      "id": "1",
+      "name": "Evil Corp SA de CV",
+      "rfc": "XAXX010101000",
+      "createdAt": "2019-11-07T00:11:12.862Z",
+      "updatedAt": "2019-11-07T00:11:12.862Z"
+    }
+  }
+}

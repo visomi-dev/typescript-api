@@ -1,0 +1,16 @@
+#%RAML 1.0
+---
+title: typescript-api
+baseUri: https://api.typescript-api.com/
+traits:
+  secured:
+    usage: Apply this to any method that needs to be secured
+    description: Some requests require authentication.
+    headers:
+      authorization:
+        description: Access Token
+        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWRjMzYxMjBkZDc5MTMyNzVkMjMzNDBkIiwiY29tcGFueSI6IjVkYzM2MTIwZGQ3OTEzMjc1ZDIzMzQwYyIsImlhdCI6MTU3MzE1MTMxMiwiZXhwIjoxNTczMjM3NzEyfQ.f3xFI0rVZFfa559Zl3_hb6VNtt8p48Ezl5NCct96IEA
+        required: true
+
+/authentication: !include authentication/index.raml
+/emails: !include emails/index.raml

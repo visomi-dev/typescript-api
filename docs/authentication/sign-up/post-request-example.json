@@ -1,0 +1,13 @@
+{
+  "user": {
+    "name": "Fulanito De Tal",
+    "email": "fulanito@detal.com",
+    "password": "Ejemplo12",
+    "phoneNumber": "5562722728",
+    "referencedCode": "12345"
+  },
+  "company": {
+    "name": "Evil Corp SA de CV",
+    "rfc": "XAXX010101000"
+  }
+}

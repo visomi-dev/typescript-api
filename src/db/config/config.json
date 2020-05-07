@@ -1,0 +1,10 @@
+{
+  "development": {
+    "url": "postgres://typescript-api:typescript-api@localhost:5432/typescript-api",
+    "dialect": "postgres"
+  },
+  "test": {
+    "url": "postgres://typescript-api:typescript-api@localhost:5432/typescript-api",
+    "dialect": "postgres"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Email for sign up",
+  "description": "Send email when the user sign up in the system",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "from": {
+      "description": "The email from the user",
+      "type": "string"
+    },
+    "email": {
+      "description": "The email of the user",
+      "type": "string",
+      "format": "email"
+    },
+    "name": {
+      "description": "The name of the person",
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120
+    },
+    "url": {
+      "description": "The URL webhook for handle when the user validate the email",
+      "type": "string",
+      "format": "uri-template"
+    },
+    "product": {
+      "description": "The product name from the user comes",
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120
+    },
+    "brand": {
+      "description": "The brand name from the user comes",
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120
+    }
+  },
+  "required": [
+    "url",
+    "email",
+    "name",
+    "product",
+    "brand"
+  ]
+}

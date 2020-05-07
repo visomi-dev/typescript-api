@@ -1,0 +1,4 @@
+[
+  { "value": "PUE", "label": "PUE - Pago en una sola exhibición" },
+  { "value": "PDD", "label": "PDD - Pago en en parcialidades o diferidos" }
+]

@@ -1,0 +1,7 @@
+[
+  { "value": "I", "label": "Ingreso" },
+  { "value": "E", "label": "Egreso" },
+  { "value": "T", "label": "Traslado" },
+  { "value": "N", "label": "Nómina" },
+  { "value": "P", "label": "Pago" }
+]

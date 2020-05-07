@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Verify session token",
+  "description": "Validate if the session is correct",
+  "type": "object",
+  "properties": {
+    "jwt": {
+      "description": "Token to validate",
+      "type": "string"
+    }
+  },
+  "required": [
+    "jwt"
+  ]
+}

@@ -1,0 +1,46 @@
+displayName: Authentication Emails
+
+/sign-up:
+  displayName: Send Sign Up Email
+  post:
+    description: Send sign up email for verificate account
+    body:
+      application/json:
+        type: !include sign-up/post-request-schema.json
+        example: !include sign-up/post-request-example.json
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include sign-up/post-response-201-schema.json
+            example: !include sign-up/post-response-201-example.json
+
+/set-password:
+  displayName: Send Set Password
+  post:
+    description: Send set password email for active the account
+    body:
+      application/json:
+        type: !include set-password/post-request-schema.json
+        example: !include set-password/post-request-example.json
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include set-password/post-response-201-schema.json
+            example: !include set-password/post-response-201-example.json
+
+/reset-password:
+  displayName: Send Reset Password
+  post:
+    description: Send reset password email for recover the account
+    body:
+      application/json:
+        type: !include reset-password/post-request-schema.json
+        example: !include reset-password/post-request-example.json
+    responses:
+      201:
+        body:
+          application/json:
+            type: !include reset-password/post-response-201-schema.json
+            example: !include reset-password/post-response-201-example.json

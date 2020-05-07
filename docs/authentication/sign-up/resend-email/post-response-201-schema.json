@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Resend SignUp Email Response",
+  "description": "Response for resend email request",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Flag for know if the request finish fine or not"
+    },
+    "message": {
+      "type": "string",
+      "description": "Message of the response"
+    }
+  }
+}

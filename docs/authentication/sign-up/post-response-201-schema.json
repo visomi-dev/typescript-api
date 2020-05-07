@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SignUp Response",
+  "description": "Response when the user was created",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Flag for know if the request finish fine or not"
+    },
+    "message": {
+      "type": "string",
+      "description": "Message of the response"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "The session token"
+        },
+        "user": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "description": "ID of the user",
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the person's",
+              "type": "string",
+              "minLength": 5,
+              "maxLength": 120
+            },
+            "email": {
+              "description": "The email of the user",
+              "type": "string",
+              "format": "email"
+            },
+            "password": {
+              "description": "The password of the user",
+              "type": "string",
+              "pattern": "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}"
+            },
+            "emailVerified": {
+              "description": "Flag for know if the user verify the email",
+              "type": "boolean",
+              "default": false
+            },
+            "phoneNumber": {
+              "description": "The phone number of the user",
+              "type": "string",
+              "pattern": "([+][(][0-9]{1,4}[)])([0-9]{5,})"
+            },
+            "referCode": {
+              "description": "The refer code for share to other people",
+              "type": "string",
+              "pattern": "[A-Z0-9]{5}"
+            },
+            "referencedCode": {
+              "description": "The code for the person was referenced",
+              "type": "string",
+              "pattern": "[A-Z0-9]{5}"
+            },
+            "createdAt": {
+              "description": "The datetime when the register was created",
+              "type": "string",
+              "format": "date-time"
+            },
+            "updatedAt": {
+              "description": "The datetime when the register was updated",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "email",
+            "phoneNumber"
+          ]
+        },
+        "company": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "description": "ID of the company",
+              "type": "string"
+            },
+            "rfc": {
+              "description": "The rfc of the company",
+              "type": "string",
+              "pattern": "^[A-Z&Ñ]{3,4}[0-9]{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])[A-Z0-9]{2}[0-9A]$"
+            },
+            "name": {
+              "description": "The legal name of the person's or company",
+              "type": "string",
+              "minLength": 5,
+              "maxLength": 120
+            },
+            "brand": {
+              "description": "The comercial name of the person's or company",
+              "type": "string",
+              "minLength": 5,
+              "maxLength": 120
+            },
+            "zipCode": {
+              "description": "The zip code of the company",
+              "type": "string",
+              "pattern": "[0-9]{5}"
+            },
+            "regime": {
+              "description": "The catalog code of SAT regime",
+              "type": "string"
+            },
+            "curp": {
+              "description": "The CURP key of the person's",
+              "type": "string"
+            },
+            "employerRegistration": {
+              "description": "The IMSS employeer registration key if are company",
+              "type": "string"
+            },
+            "efirmaPassword": {
+              "description": "The password of the efirma certs",
+              "type": "string"
+            },
+            "csdPassword": {
+              "description": "The password of the csd certs",
+              "type": "string"
+            },
+            "createdAt": {
+              "description": "The datetime when the register was created",
+              "type": "string",
+              "format": "date-time"
+            },
+            "updatedAt": {
+              "description": "The datetime when the register was updated",
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "rfc",
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "user",
+        "company",
+        "token"
+      ]
+    }
+  }
+}

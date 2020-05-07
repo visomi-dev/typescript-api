@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Password Recovery",
+  "description": "Replace old password",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "token": {
+      "description": "Password recovery token",
+      "type": "string"
+    },
+    "password": {
+      "description": "The password of the user",
+      "type": "string",
+      "pattern": "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}"
+    }
+  },
+  "required": [
+    "password",
+    "token"
+  ]
+}

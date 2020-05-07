@@ -1,0 +1,16 @@
+{
+  "$id": "http://typescript-api.com/schemas/authentication/sign-up.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Make user",
+  "description": "Insert a new user in the database",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "user": { "$ref": "authentication.json#/definitions/user" },
+    "company": { "$ref": "authentication.json#/definitions/company" }
+  },
+  "required": [
+    "user",
+    "company"
+  ]
+}

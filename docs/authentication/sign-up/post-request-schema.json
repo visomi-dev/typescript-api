@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Make user",
+  "description": "Insert a new user in the database",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "user": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the person's",
+          "minLength": 5,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of the user",
+          "format": "email"
+        },
+        "password": {
+          "type": "string",
+          "description": "The password of the user",
+          "pattern": "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,50}"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "The phone number of the user",
+          "pattern": "([+][(][0-9]{1,4}[)])([0-9]{5,})"
+        },
+        "referencedCode": {
+          "description": "The code for the person was referenced",
+          "type": "string",
+          "pattern": "[A-Z0-9]{5}"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "phoneNumber"
+      ]
+    },
+    "company": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rfc": {
+          "type": "string",
+          "description": "The rfc of the company",
+          "pattern": "^[A-Z&Ñ]{3,4}[0-9]{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])[A-Z0-9]{2}[0-9A]$"
+        },
+        "name": {
+          "type": "string",
+          "description": "The legal name of the person's or company",
+          "minLength": 5,
+          "maxLength": 120
+        },
+        "brand": {
+          "type": "string",
+          "description": "The comercial name of the person's or company",
+          "minLength": 5,
+          "maxLength": 120
+        },
+        "zipCode": {
+          "type": "string",
+          "description": "The zip code of the company",
+          "pattern": "[0-9]{5}"
+        },
+        "regime": {
+          "type": "string",
+          "description": "The catalog code of SAT regime"
+        },
+        "curp": {
+          "type": "string",
+          "description": "The CURP key of the person's"
+        },
+        "employerRegistration": {
+          "type": "string",
+          "description": "The IMSS employeer registration key if are company"
+        },
+        "efirmaPassword": {
+          "type": "string",
+          "description": "The password of the efirma certs"
+        },
+        "csdPassword": {
+          "type": "string",
+          "description": "The password of the csd certs"
+        }
+      },
+      "required": [
+        "rfc",
+        "name"
+      ]
+    },
+    "webhook": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for webhook for validate email frontend"
+    }
+  },
+  "required": [
+    "user",
+    "company"
+  ]
+}

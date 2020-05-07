@@ -1,0 +1,100 @@
+{
+  "$id": "http://typescript-api.com/schemas/authentication/authentication.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Email Entities",
+  "description": "Definition of Email types and default flow",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "from": {
+      "description": "The email from the user",
+      "type": "string"
+    },
+    "email": {
+      "description": "The email of the user",
+      "type": "string",
+      "format": "email"
+    },
+    "name": {
+      "description": "The name of the person",
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120
+    },
+    "url": {
+      "description": "The URL webhook for handle when the user validate the email",
+      "type": "string",
+      "format": "uri-template"
+    },
+    "product": {
+      "description": "The product name from the user comes",
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120
+    },
+    "brand": {
+      "description": "The brand name from the user comes",
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 120
+    }
+  },
+  "required": [
+    "url",
+    "email",
+    "name",
+    "product",
+    "brand"
+  ],
+  "definitions": {
+    "email": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "The email address to send the data"
+        },
+        "from": {
+          "type": "string",
+          "description": "The email address from send the data"
+        },
+        "subject": {
+          "type": "string",
+          "description": "The email title"
+        },
+        "html": {
+          "type": "string",
+          "description": "If the format is HTML"
+        },
+        "text": {
+          "type": "string",
+          "description": "If the format is plain text"
+        },
+        "attachment": {
+          "type": "string",
+          "description": "The file to attach"
+        },
+        "response": {
+          "type": "object",
+          "description": "The response of the mailgun service",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The ID of the mailgun email"
+            },
+            "message": {
+              "type": "string",
+              "description": "The response message of the mailgun service"
+            }
+          }
+        }
+      },
+      "required": [
+        "to",
+        "from",
+        "subject"
+      ]
+    }
+  }
+}
