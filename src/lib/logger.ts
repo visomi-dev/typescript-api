@@ -1,4 +1,4 @@
-import * as winston from 'winston';
+import winston from 'winston';
 
 const LOG_LEVEL = process.env.LOG_LEVEL || 'debug';
 
@@ -9,7 +9,7 @@ const logger = winston.createLogger({
     winston.format.timestamp(),
     winston.format.align(),
     winston.format.printf(
-      entry => `${entry.timestamp} ${entry.level}: ${entry.message}`,
+      (entry) => `${entry.timestamp} ${entry.level}: ${entry.message}`,
     ),
   ),
   transports: [
