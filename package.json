@@ -1,7 +1,7 @@
 {
-  "name": "typescript-api-back",
+  "name": "typescript-api",
   "version": "0.0.0",
-  "description": "cashflow backend",
+  "description": "typescript api example",
   "main": "src/main.ts",
   "scripts": {
     "sequelize:sync": "node -r dotenv/config db",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/visomi.dev/typescript-api-back.git"
+    "url": "git+ssh://git@gitlab.com/visomi.dev/typescript-api.git"
   },
   "author": "Michael Villalba Sotelo",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/visomi.dev/typescript-api-back/issues"
+    "url": "https://gitlab.com/visomi.dev/typescript-api/issues"
   },
-  "homepage": "https://gitlab.com/visomi.dev/typescript-api-back#readme",
+  "homepage": "https://gitlab.com/visomi.dev/typescript-api#readme",
   "dependencies": {
     "@koa/cors": "^3.0.0",
     "ajv": "^6.12.2",
