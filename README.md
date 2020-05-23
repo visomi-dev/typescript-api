@@ -1,7 +1,5 @@
 # DB
 
-### IMPORTANT - The directories migrations, schemas and seeds are not `.ts` because the sequelize-cli only accept `.js`
-
 For run migrations run:
 `yarn sequelize db:migrate`
 
