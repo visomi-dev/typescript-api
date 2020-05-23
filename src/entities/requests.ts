@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import { messages } from 'mailgun-js';
 
 import { UserModel } from './models';
@@ -40,7 +39,7 @@ export interface MailgunSendData extends messages.SendData {
   response?: messages.SendResponse;
 }
 
-export interface EmailLog extends mongoose.Document {
+export interface EmailLog {
   to: string;
   from: string;
   subject: string;

@@ -1,9 +1,11 @@
-const snakeCase = require('lodash/snakeCase');
+import { QueryInterface, DataTypes, ModelAttributes } from 'sequelize';
 
-const { snakeCaseObject } = require('../helpers');
+import snakeCase from 'lodash/snakeCase';
+
+import helpers from '../../lib/helpers';
 
 const TABLE_NAME = snakeCase('CompaniesUsers');
-const fields = DataTypes => snakeCaseObject({
+const FIELDS: ModelAttributes = helpers.snakeCaseObject({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -43,8 +45,12 @@ const fields = DataTypes => snakeCaseObject({
 });
 
 const migration = {
-  up: (queryInterface, DataTypes) => queryInterface.createTable(TABLE_NAME, fields(DataTypes)),
-  down: queryInterface => queryInterface.dropTable(TABLE_NAME),
+  async up(queryInterface: QueryInterface): Promise<void> {
+    await queryInterface.createTable(TABLE_NAME, FIELDS);
+  },
+  async down(queryInterface: QueryInterface): Promise<void> {
+    await queryInterface.dropTable(TABLE_NAME);
+  },
 };
 
-module.exports = migration;
+export default migration;

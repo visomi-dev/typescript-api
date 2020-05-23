@@ -2,3 +2,5 @@ node_modules
 build
 api.html
 .env
+
+.vscode

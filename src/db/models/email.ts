@@ -1,37 +1,42 @@
-import mongoose, { Schema } from 'mongoose';
+import { DataTypes } from 'sequelize';
 
-import { EmailLog } from '../../entities/requests';
+import sequelize from '../sequelize';
+import { EmailModel } from '../../entities/models';
 
-const schema = {
-  to: String,
-  from: String,
-  subject: String,
+class Email extends EmailModel {}
+
+const emailFields = {
+  to: {
+    type: new DataTypes.STRING(128),
+    allowNull: false,
+  },
+  from: {
+    type: new DataTypes.STRING(128),
+  },
+  subject: {
+    type: new DataTypes.STRING(128),
+  },
   html: {
-    type: String,
-    default: undefined,
+    type: new DataTypes.TEXT('long'),
   },
   text: {
-    type: String,
-    default: undefined,
+    type: new DataTypes.TEXT('long'),
   },
-  attachment: {
-    type: String,
-    default: undefined,
+  mailgunResponseId: {
+    type: new DataTypes.STRING(128),
   },
-  response: {
-    type: new Schema({
-      id: {
-        type: String,
-        default: undefined,
-      },
-      message: String,
-    }, { timestamps: true }),
-    default: undefined,
+  mailgunResponseMessage: {
+    type: new DataTypes.STRING(128),
   },
 };
 
-const modelSchema = new mongoose.Schema(schema, { timestamps: true });
+const emailOptions = {
+  modelName: 'email',
+  paranoid: true,
+  underscored: true,
+  sequelize,
+};
 
-const Email = mongoose.model<EmailLog>('Email', modelSchema);
+Email.init(emailFields, emailOptions);
 
 export default Email;

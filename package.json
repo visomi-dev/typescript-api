@@ -4,6 +4,7 @@
   "description": "typescript api example",
   "main": "src/main.ts",
   "scripts": {
+    "clean": "rm -rf yarn.lock node_modules",
     "sequelize:sync": "node -r dotenv/config db",
     "sequelize": "sequelize-cli --options-path src/db/.sequelizerc.js",
     "start": "node ./build/main.js",
@@ -38,7 +39,6 @@
     "lodash": "^4.17.15",
     "mailgun-js": "^0.22.0",
     "mjml": "^4.6.3",
-    "mongoose": "^5.9.12",
     "pg": "^8.0.3",
     "raml2html": "^7.5.0",
     "raml2html-slate-theme": "^2.6.0",
@@ -57,7 +57,6 @@
     "@types/lodash": "^4.14.150",
     "@types/mailgun-js": "^0.22.4",
     "@types/mjml": "^4.0.4",
-    "@types/mongoose": "^5.7.15",
     "@types/node": "^13.13.4",
     "@types/validator": "^13.0.0",
     "@types/winston": "^2.4.4",
