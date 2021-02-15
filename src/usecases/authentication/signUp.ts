@@ -13,7 +13,7 @@ async function signUp(ctx: Context): Promise<SessionResponse> {
   const { sendEmail: $sendEmail = 'true' } = ctx.request.query;
   const { body: $body } = ctx.request;
 
-  const sendEmail = JSON.parse($sendEmail);
+  const sendEmail = JSON.parse($sendEmail.toString());
   const body: SignUpBody = $body;
 
   const hasPassword = !!body.user.password;

@@ -8,7 +8,7 @@ import models from '../../db/models';
 import { ErrorResponse, BaseResponse, SessionToken } from '../../entities/responses';
 
 async function resendVerifyEmail(ctx: Context): Promise<BaseResponse> {
-  const { authorization }: { authorization: string } = ctx.request.headers;
+  const { authorization }: { authorization?: string } = ctx.request.headers;
 
   if (!authorization) {
     const error = new ErrorResponse('authorization header is required');

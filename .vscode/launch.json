@@ -5,14 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch via yarn",
+      "name": "Server",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "runtimeVersion": "10.20.1",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["debug"],
-      "port": 9229
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "debug"]
     }
   ]
 }

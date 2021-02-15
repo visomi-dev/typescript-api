@@ -32,13 +32,11 @@ export class CompanyModel extends Model {
 
   public csdPassword!: string | null;
 
-
   public id!: number;
 
   public readonly createdAt!: Date;
 
   public readonly updatedAt!: Date;
-
 
   public getUsers!: HasManyGetAssociationsMixin<UserModel>;
 
@@ -74,13 +72,11 @@ export class UserModel extends Model {
 
   public defaultCompanyId!: number;
 
-
   public id!: number;
 
   public readonly createdAt!: Date;
 
   public readonly updatedAt!: Date;
-
 
   public getUsers!: HasManyGetAssociationsMixin<CompanyModel>;
 

@@ -4,6 +4,7 @@ import snakeCase from 'lodash/snakeCase';
 
 import helpers from '../../lib/helpers';
 import bcrypt from '../../lib/bcrypt';
+import { UserTable } from '../../entities/db';
 
 const TABLE_NAME = snakeCase('Users');
 const DATA = [{
@@ -14,7 +15,7 @@ const DATA = [{
   phoneNumber: '+(52)5587606759',
   createdAt: new Date(),
   updatedAt: new Date(),
-}].map(helpers.snakeCaseObject);
+}].map((user) => helpers.snakeCaseObject<UserTable>(user));
 
 const seeder = {
   async up(queryInterface: QueryInterface): Promise<void> {

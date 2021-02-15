@@ -2,6 +2,7 @@ import { QueryInterface } from 'sequelize';
 
 import snakeCase from 'lodash/snakeCase';
 
+import { CompaniesUsersTable } from '../../entities/db';
 import helpers from '../../lib/helpers';
 
 const TABLE_NAME = snakeCase('CompaniesUsers');
@@ -10,7 +11,7 @@ const DATA = [{
   companyId: 1,
   createdAt: new Date(),
   updatedAt: new Date(),
-}].map(helpers.snakeCaseObject);
+}].map(((association) => helpers.snakeCaseObject<CompaniesUsersTable>(association)));
 
 const seeder = {
   async up(queryInterface: QueryInterface): Promise<void> {

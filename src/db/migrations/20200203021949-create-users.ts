@@ -6,7 +6,7 @@ import helpers from '../../lib/helpers';
 
 const TABLE_NAME = snakeCase('Users');
 const INDEXES = ['name', snakeCase('phoneNumber')];
-const FIELDS: ModelAttributes = helpers.snakeCaseObject({
+const FIELDS = helpers.snakeCaseObject<ModelAttributes>({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,

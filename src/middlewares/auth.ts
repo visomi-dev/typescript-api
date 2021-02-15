@@ -8,5 +8,4 @@ async function authMiddleware(ctx: Context, next: Next): Promise<unknown> {
   return next();
 }
 
-
 export default authMiddleware;
